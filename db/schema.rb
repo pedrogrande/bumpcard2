@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609021003) do
+ActiveRecord::Schema.define(:version => 20130609064552) do
 
   create_table "card_colors", :force => true do |t|
     t.string   "card_color", :default => "#FFFFFF"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(:version => 20130609021003) do
   end
 
   add_index "card_colors", ["card_id"], :name => "index_card_colors_on_card_id"
+
+  create_table "card_font_alignments", :force => true do |t|
+    t.string   "alignment",  :default => "left"
+    t.integer  "card_id"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "card_font_alignments", ["card_id"], :name => "index_card_font_alignments_on_card_id"
 
   create_table "card_font_colors", :force => true do |t|
     t.string   "card_font_color", :default => "#000000"
@@ -53,6 +62,16 @@ ActiveRecord::Schema.define(:version => 20130609021003) do
 
   add_index "card_images", ["card_id"], :name => "index_card_images_on_card_id"
 
+  create_table "card_texts", :force => true do |t|
+    t.text     "content",    :limit => 255
+    t.integer  "card_id"
+    t.boolean  "active"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "card_texts", ["card_id"], :name => "index_card_texts_on_card_id"
+
   create_table "cards", :force => true do |t|
     t.integer  "user_id"
     t.boolean  "card_image"
@@ -65,6 +84,15 @@ ActiveRecord::Schema.define(:version => 20130609021003) do
 
   add_index "cards", ["user_id"], :name => "index_cards_on_user_id"
 
+  create_table "logos", :force => true do |t|
+    t.string   "image"
+    t.integer  "card_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "logos", ["card_id"], :name => "index_logos_on_card_id"
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -75,6 +103,18 @@ ActiveRecord::Schema.define(:version => 20130609021003) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "text_positions", :force => true do |t|
+    t.string   "position",   :default => "top"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "text_sizes", :force => true do |t|
+    t.string   "size",       :default => "Medium"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

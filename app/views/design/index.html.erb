@@ -1,2 +1,108 @@
-<h1>Design#index</h1>
-<p>Find me in app/views/design/index.html.erb</p>
+<h1>Design your bumpcard</h1>
+<div class="row">
+	<div class="span6">
+		<br><br>
+		<%= simple_form_for CardColor.new do |ccf| %>
+			<%= ccf.input :card_color, :input_html => { :id => "full" } %>
+		<% end %>
+		<%= simple_form_for CardFontColor.new do |cfcf| %>
+    	<%= cfcf.input :card_font_color, :input_html => { :id => "full2" } %>
+    <% end %>
+    <%= simple_form_for CardText.new do |ctf| %>
+    	<%= ctf.input :content, :input_html => {:class => 'wysihtml5 span5', :rows => 4}, :placeholder => "John Smith" %>
+    <% end %>
+    <%= simple_form_for CardFontFamily.new do |cfff| %>
+    	<%= cfff.input :card_font_family, :as => :hidden %>
+    <% end %>
+    <div class="btn-group font-family" data-toggle="buttons-radio">
+        <button type="button" class="btn active"><span style="font-family:arial;">Arial</span></button>
+        <button type="button" class="btn"><span style="font-family:'Times New Roman';">Times New Roman</span></button>
+        <button type="button" class="btn"><span style="font-family:verdana;">Verdana</span></button>
+    </div>
+    <%= simple_form_for CardFontAlignment.new do |f| %>
+    	<%= f.input :alignment, :as => :hidden %>
+    <% end %>
+    <div class="btn-group alignment" data-toggle="buttons-radio">
+        <button type="button" class="btn active">Left<i class="icon-align-left"></i></button>
+        <button type="button" class="btn">Center<i class="icon-align-center"></i></button>
+        <button type="button" class="btn">Right<i class="icon-align-right"></i></button>
+    </div>
+
+    <%= simple_form_for TextPosition.new do |f| %>
+    	<%= f.input :position, :as => :hidden %>
+    <% end %>
+    <div class="btn-group position" data-toggle="buttons-radio">
+        <button type="button" class="btn active">Top</button>
+        <button type="button" class="btn">Middle</button>
+        <button type="button" class="btn">Bottom</button>
+    </div>
+	
+	    <%= simple_form_for TextSize.new do |f| %>
+    	<%= f.input :size, :as => :hidden %>
+    <% end %>
+    <div class="btn-group text-size" data-toggle="buttons-radio">
+        <button type="button" class="btn ">Small</button>
+        <button type="button" class="btn active">Medium</button>
+        <button type="button" class="btn">Large</button>
+    </div>
+
+    <%= simple_form_for Logo.new, :html => { :multipart => true, :class => "" } do |f| %>
+    	<%= f.input :image, :as => :file, :input_html => { :onchange => "readURL(this);"} %>
+    <% end %>
+
+	</div>
+	<%= render 'phone' %>
+</div>
+
+<script>
+
+var txtBox = $('#card_text_content');
+txtBox.keydown(function(e){
+    var that = this;
+    setTimeout(function(){
+        $("#card_content").html(that.value.replace(/\n/g,"<br />"));
+    },10);
+});
+$(".font-family .btn").click(function() {
+    // whenever a button is clicked, set the hidden helper
+
+    $("#card_font_family_card_font_family").val($(this).text());
+    $("#card_content").css({'font-family': $(this).text()});
+});
+$(".alignment .btn").click(function() {
+    // whenever a button is clicked, set the hidden helper
+
+    $("#card_font_alignment_alignment").val($(this).text());
+    $("#card_content").css({'text-align': $(this).text()});
+});
+$(".position .btn").click(function() {
+    // whenever a button is clicked, set the hidden helper
+
+    $("#text_position_position").val($(this).text());
+    $("#card_content").removeClass("Top Middle Bottom");
+    $("#card_content").addClass($(this).text());
+});
+$(".text-size .btn").click(function() {
+    // whenever a button is clicked, set the hidden helper
+
+    $("#text_size_size").val($(this).text());
+    $("#card_content").removeClass("Small Medium Large");
+    $("#card_content").addClass($(this).text());
+});
+</script>
+<script>
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function (e) {
+			$('#img_prev')
+			.attr('src', e.target.result)
+			.width(100)
+			.height(100);
+		};
+
+		reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>

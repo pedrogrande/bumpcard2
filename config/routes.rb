@@ -1,4 +1,21 @@
 Bumpcard2::Application.routes.draw do
+  resources :logos
+
+
+  resources :text_sizes
+
+
+  resources :text_positions
+
+
+  get "text_positions/new"
+
+  resources :card_font_alignments
+
+
+  resources :card_texts
+
+
   resources :card_font_families
 
 

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Image:</b>
+  <%= @logo.image %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @logo.card %>
+</p>
+
+
+<%= link_to 'Edit', edit_logo_path(@logo) %> |
+<%= link_to 'Back', logos_path %>

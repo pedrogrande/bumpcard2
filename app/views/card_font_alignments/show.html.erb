@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Alignment:</b>
+  <%= @card_font_alignment.alignment %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @card_font_alignment.card %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_font_alignment_path(@card_font_alignment) %> |
+<%= link_to 'Back', card_font_alignments_path %>

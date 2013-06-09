@@ -1,0 +1,27 @@
+<h1>Listing card_texts</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Card</th>
+    <th>Active</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @card_texts.each do |card_text| %>
+  <tr>
+    <td><%= card_text.content %></td>
+    <td><%= card_text.card %></td>
+    <td><%= card_text.active %></td>
+    <td><%= link_to 'Show', card_text %></td>
+    <td><%= link_to 'Edit', edit_card_text_path(card_text) %></td>
+    <td><%= link_to 'Destroy', card_text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Card text', new_card_text_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @card_text.content %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @card_text.card %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @card_text.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_text_path(@card_text) %> |
+<%= link_to 'Back', card_texts_path %>

@@ -1,0 +1,25 @@
+<h1>Listing card_font_alignments</h1>
+
+<table>
+  <tr>
+    <th>Alignment</th>
+    <th>Card</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @card_font_alignments.each do |card_font_alignment| %>
+  <tr>
+    <td><%= card_font_alignment.alignment %></td>
+    <td><%= card_font_alignment.card %></td>
+    <td><%= link_to 'Show', card_font_alignment %></td>
+    <td><%= link_to 'Edit', edit_card_font_alignment_path(card_font_alignment) %></td>
+    <td><%= link_to 'Destroy', card_font_alignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Card font alignment', new_card_font_alignment_path %>
