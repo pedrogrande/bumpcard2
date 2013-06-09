@@ -1,4 +1,7 @@
 Bumpcard2::Application.routes.draw do
+  resources :profile_pictures
+
+
   resources :logos
 
 

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Image:</b>
+  <%= @profile_picture.image %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @profile_picture.card %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_picture_path(@profile_picture) %> |
+<%= link_to 'Back', profile_pictures_path %>

@@ -248,30 +248,41 @@ body {
 
     }
 .nexus {
-  background-image: url(nexus.png);
+  background-image: url(nexus2.png);
   background-repeat: no-repeat;
-  height: 500px;
-  width: 265px;
-  padding-top: 79px;
+  height: 625px;
+  width: 331px;
+  padding-top: 78px;
 
 }
 .screen{
-  height:325px;
-  width:221px;
-  margin-left: 25px;
-  padding: 5px;
+  height:465px;
+  width:275px;
+  margin-left: 30px;
   background-color: #FFFFFF;
   color: #000000;
 }
-
+.card_logo {
+	height: 100px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+#card_image {
+	margin-top: 30px;
+}
+.font {
+	text-align: center;
+	padding-top: 20px;
+}
 .Top .top{
 	margin-top: 20px;
 }
 .Middle {
-	margin-top: 110px;
+	margin-top: 60px;
 }
 .Bottom {
-	margin-top: 200px;
+	margin-top: 120px;
 }
 .Small {
 	font-size: 14px;

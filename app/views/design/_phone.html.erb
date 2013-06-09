@@ -1,12 +1,19 @@
 <div class="span6">
-    <div class="nexus">
-      <div class="screen">
-      	<div id="card_background" class="Off"><div id="cb" class="Off"><%= image_tag "bclogo.png", :id => "card_image" %></div></div>
-      	<div id="no_card_background"><div id="ncb">
-      		<%= image_tag "bclogo.png", :id => "img_prev", :alt => "your logo" %><p class="font" id="card_content">John Smith<br>Director<br>Sydney Dev Camp</p></div>
+  <div class="nexus">
+    <div class="screen">
+      <div id="card_background" class="Off">
+      	<div id="cb" class="Off"><%= image_tag "your_design.png", :id => "card_image" %>
       	</div>
-
       </div>
-    </div>
-		
-	</div>
+      <div id="no_card_background">
+    		<div id="ncb">
+      		<%= image_tag "pp2.jpg", :id => "profile_pic", :alt => "profile pic" %>
+      		<%= image_tag "bclogo.png", :id => "img_prev", :alt => "your logo", :class => 'card_logo' %>
+      		<p class="font" id="card_content">
+      			John Smith<br>Director<br>Sydney Dev Camp
+      		</p>
+    		</div>
+      </div>
+		</div>
+  </div>
+</div>

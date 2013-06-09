@@ -23,8 +23,8 @@
     	<%= f.input :alignment, :as => :hidden %>
     <% end %>
     <div class="btn-group alignment" data-toggle="buttons-radio">
-        <button type="button" class="btn active">Left<i class="icon-align-left"></i></button>
-        <button type="button" class="btn">Center<i class="icon-align-center"></i></button>
+        <button type="button" class="btn ">Left<i class="icon-align-left"></i></button>
+        <button type="button" class="btn active">Center<i class="icon-align-center"></i></button>
         <button type="button" class="btn">Right<i class="icon-align-right"></i></button>
     </div>
 
@@ -46,13 +46,22 @@
         <button type="button" class="btn">Large</button>
     </div>
     <br><br>
+
+    <%= simple_form_for ProfilePicture.new, :html => { :multipart => true, :class => "" } do |f| %>
+    	<span class="btn btn-info fileinput-button">
+          <i class="icon-user icon-white"></i>
+    			<%= f.input :image, :label => 'Upload profile pic', :as => :file, :input_html => { :onchange => "profilePic(this);"} %>
+    		</span>
+    <% end %>
+    <br>
+
     <%= simple_form_for Logo.new, :html => { :multipart => true, :class => "" } do |f| %>
     	<span class="btn btn-success fileinput-button">
-          <i class="icon-plus icon-white"></i>
+          <i class="icon-upload-alt icon-white"></i>
     			<%= f.input :image, :label => 'Upload logo', :as => :file, :input_html => { :onchange => "readURL(this);"} %>
     		</span>
     <% end %>
-    
+
     	<%= hidden_field_tag :use_design %>
     Use my own design<br>
     <div class="btn-group my_design" data-toggle="buttons-radio">
@@ -61,7 +70,7 @@
     </div>
     <%= simple_form_for CardImage.new, :html => { :multipart => true, :class => "" } do |f| %>
     	<span class="btn btn-primary fileinput-button">
-          <i class="icon-plus icon-white"></i>
+          <i class="icon-upload-alt icon-white"></i>
     			<%= f.input :image, :label => 'Upload card image', :as => :file, :input_html => { :onchange => "readURL2(this);"} %>
     		</span>
     <% end %>
@@ -132,6 +141,21 @@ $(".my_design .btn").click(function() {
 	}
 </script>
 <script>
+	function profilePic(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function (e) {
+			$('#profile_pic')
+			.attr('src', e.target.result)
+			.width(275);
+		};
+
+		reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+<script>
 	function readURL2(input) {
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
@@ -143,6 +167,7 @@ $(".my_design .btn").click(function() {
 		};
 
 		reader.readAsDataURL(input.files[0]);
+		$("#card_image").css({'margin-top':'0'});
 		$("#cb").addClass('On');
 		$("#ncb").removeClass("On Off");
     $("#ncb").addClass("On");
