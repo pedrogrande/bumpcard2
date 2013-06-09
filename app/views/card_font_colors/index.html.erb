@@ -1,0 +1,27 @@
+<h1>Listing card_font_colors</h1>
+
+<table>
+  <tr>
+    <th>Card font color</th>
+    <th>Card</th>
+    <th>Active</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @card_font_colors.each do |card_font_color| %>
+  <tr>
+    <td><%= card_font_color.card_font_color %></td>
+    <td><%= card_font_color.card %></td>
+    <td><%= card_font_color.active %></td>
+    <td><%= link_to 'Show', card_font_color %></td>
+    <td><%= link_to 'Edit', edit_card_font_color_path(card_font_color) %></td>
+    <td><%= link_to 'Destroy', card_font_color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Card font color', new_card_font_color_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Card font color:</b>
+  <%= @card_font_color.card_font_color %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @card_font_color.card %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @card_font_color.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_font_color_path(@card_font_color) %> |
+<%= link_to 'Back', card_font_colors_path %>

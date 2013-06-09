@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Image:</b>
+  <%= @card_image.image %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @card_image.card %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @card_image.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_image_path(@card_image) %> |
+<%= link_to 'Back', card_images_path %>

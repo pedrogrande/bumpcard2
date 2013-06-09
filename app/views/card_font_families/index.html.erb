@@ -1,0 +1,27 @@
+<h1>Listing card_font_families</h1>
+
+<table>
+  <tr>
+    <th>Card font family</th>
+    <th>Card</th>
+    <th>Active</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @card_font_families.each do |card_font_family| %>
+  <tr>
+    <td><%= card_font_family.card_font_family %></td>
+    <td><%= card_font_family.card %></td>
+    <td><%= card_font_family.active %></td>
+    <td><%= link_to 'Show', card_font_family %></td>
+    <td><%= link_to 'Edit', edit_card_font_family_path(card_font_family) %></td>
+    <td><%= link_to 'Destroy', card_font_family, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Card font family', new_card_font_family_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Card font family:</b>
+  <%= @card_font_family.card_font_family %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @card_font_family.card %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @card_font_family.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_font_family_path(@card_font_family) %> |
+<%= link_to 'Back', card_font_families_path %>

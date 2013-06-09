@@ -1,0 +1,27 @@
+<h1>Listing card_images</h1>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Card</th>
+    <th>Active</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @card_images.each do |card_image| %>
+  <tr>
+    <td><%= card_image.image %></td>
+    <td><%= card_image.card %></td>
+    <td><%= card_image.active %></td>
+    <td><%= link_to 'Show', card_image %></td>
+    <td><%= link_to 'Edit', edit_card_image_path(card_image) %></td>
+    <td><%= link_to 'Destroy', card_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Card image', new_card_image_path %>
