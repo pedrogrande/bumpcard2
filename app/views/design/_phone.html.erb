@@ -1,7 +1,10 @@
 <div class="span6">
     <div class="nexus">
       <div class="screen">
-      	<%= image_tag "bclogo.png", :id => "img_prev", :alt => "your logo" %><p class="font" id="card_content">John Smith<br>Director<br>Sydney Dev Camp</p>
+      	<div id="card_background" class="Off"><div id="cb" class="Off"><%= image_tag "bclogo.png", :id => "card_image" %></div></div>
+      	<div id="no_card_background"><div id="ncb">
+      		<%= image_tag "bclogo.png", :id => "img_prev", :alt => "your logo" %><p class="font" id="card_content">John Smith<br>Director<br>Sydney Dev Camp</p></div>
+      	</div>
 
       </div>
     </div>

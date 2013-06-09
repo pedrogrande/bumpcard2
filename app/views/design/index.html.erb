@@ -45,11 +45,27 @@
         <button type="button" class="btn active">Medium</button>
         <button type="button" class="btn">Large</button>
     </div>
-
+    <br><br>
     <%= simple_form_for Logo.new, :html => { :multipart => true, :class => "" } do |f| %>
-    	<%= f.input :image, :as => :file, :input_html => { :onchange => "readURL(this);"} %>
+    	<span class="btn btn-success fileinput-button">
+          <i class="icon-plus icon-white"></i>
+    			<%= f.input :image, :label => 'Upload logo', :as => :file, :input_html => { :onchange => "readURL(this);"} %>
+    		</span>
     <% end %>
-
+    
+    	<%= hidden_field_tag :use_design %>
+    Use my own design<br>
+    <div class="btn-group my_design" data-toggle="buttons-radio">
+        <button type="button" class="btn " id="on">On</button>
+        <button type="button" class="btn active" id="off">Off</button>
+    </div>
+    <%= simple_form_for CardImage.new, :html => { :multipart => true, :class => "" } do |f| %>
+    	<span class="btn btn-primary fileinput-button">
+          <i class="icon-plus icon-white"></i>
+    			<%= f.input :image, :label => 'Upload card image', :as => :file, :input_html => { :onchange => "readURL2(this);"} %>
+    		</span>
+    <% end %>
+    
 	</div>
 	<%= render 'phone' %>
 </div>
@@ -89,6 +105,15 @@ $(".text-size .btn").click(function() {
     $("#card_content").removeClass("Small Medium Large");
     $("#card_content").addClass($(this).text());
 });
+$(".my_design .btn").click(function() {
+    // whenever a button is clicked, set the hidden helper
+
+    $("#text_size_size").val($(this).text());
+    $("#cb").removeClass("On Off");
+    $("#cb").addClass($(this).text());
+    $("#ncb").removeClass("On Off");
+    $("#ncb").addClass($(this).text());
+});
 </script>
 <script>
 	function readURL(input) {
@@ -103,6 +128,26 @@ $(".text-size .btn").click(function() {
 		};
 
 		reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+<script>
+	function readURL2(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function (e) {
+			$('#card_image')
+			.attr('src', e.target.result)
+			.width(325);
+		};
+
+		reader.readAsDataURL(input.files[0]);
+		$("#cb").addClass('On');
+		$("#ncb").removeClass("On Off");
+    $("#ncb").addClass("On");
+    $("#on").addClass("active");
+    $("#off").removeClass("active");
 		}
 	}
 </script>
