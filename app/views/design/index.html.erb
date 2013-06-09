@@ -27,7 +27,7 @@
         <button type="button" class="btn active">Center<i class="icon-align-center"></i></button>
         <button type="button" class="btn">Right<i class="icon-align-right"></i></button>
     </div>
-
+<!-- 
     <%= simple_form_for TextPosition.new do |f| %>
     	<%= f.input :position, :as => :hidden %>
     <% end %>
@@ -35,7 +35,7 @@
         <button type="button" class="btn active">Top</button>
         <button type="button" class="btn">Middle</button>
         <button type="button" class="btn">Bottom</button>
-    </div>
+    </div> -->
 	
 	    <%= simple_form_for TextSize.new do |f| %>
     	<%= f.input :size, :as => :hidden %>
@@ -51,7 +51,7 @@
     	<span class="btn btn-info fileinput-button">
           <i class="icon-user icon-white"></i>
     			<%= f.input :image, :label => 'Upload profile pic', :as => :file, :input_html => { :onchange => "profilePic(this);"} %>
-    		</span>
+    		</span>Square pic is best :)
     <% end %>
     <br>
 
@@ -59,7 +59,7 @@
     	<span class="btn btn-success fileinput-button">
           <i class="icon-upload-alt icon-white"></i>
     			<%= f.input :image, :label => 'Upload logo', :as => :file, :input_html => { :onchange => "readURL(this);"} %>
-    		</span>
+    		</span>Square pic is best :)
     <% end %>
 
     	<%= hidden_field_tag :use_design %>
